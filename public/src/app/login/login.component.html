@@ -1,0 +1,12 @@
+<div>
+<form #form='ngForm'>
+  <label>Your Name:</label><input type="text" name="user" required minlength="2" [(ngModel)]="user.name" #name="ngModel">
+  <br>
+  <input [routerLink]="['/dashboard']" [disabled]="!form.valid" (click)="onClick()" type="submit" value="Login" id="button">
+</form>
+</div>
+<div id="error">
+  <span class="error" *ngIf="name.errors && (name.dirty || name.touch)">
+    <span *ngIf="name.errors.required">Name is required</span>
+    <span *ngIf="name.errors.minlength">Name must be at least 2 characters in length</span>
+  </span><br>

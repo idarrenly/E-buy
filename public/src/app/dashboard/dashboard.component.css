@@ -1,0 +1,47 @@
+nav{
+    margin-left: 805px;
+}
+h2{
+    display: inline;  
+}
+.wrapper{
+    padding: 20px;
+    width: 900px;
+}
+img{
+    width: 250px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+.product1, .product2, .product3{
+    vertical-align: top;
+    padding: 10px;
+    margin-top: 50px;
+    margin-right: 25px;
+    width: 250px;
+    height: 495px;
+    display: inline-block;
+}
+button{
+    padding: 10px;
+    margin-top: 55px;
+    margin-left: 790px;
+    box-shadow: 2px 2px 1px #888888;
+}
+/* button:hover {
+    color: red;
+} */
+.error{
+    color: red;
+    font-style: italic;
+}
+.biddings{
+    padding: 10px;
+    height: 120px;
+    border: 1px solid black;
+}
+.go{
+    color: red;
+}
+
+

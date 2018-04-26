@@ -1,0 +1,203 @@
+<div class="wrapper">
+  <h2>Bid Now!</h2>
+  <nav>
+    <a [routerLink]="['']">Logout</a>
+  </nav>
+  
+  <div class="product1">
+    <img src="../assets/images/basketball.jpg" alt="product 1">
+
+    <form>
+      <span *ngIf="(!all_basketball[0])">
+        <input type="number" name="price" min="1" [(ngModel)]="new_bid1.price">
+        <span *ngIf="new_bid1.price > 0; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit1(); new_bid1.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit1(); new_bid1.price=''"></ng-template>
+      </span>
+
+      <span *ngIf="all_basketball[0] && !all_basketball[1]">
+        <input type="number" name="price" min={{all_basketball[0].price}} [(ngModel)]="new_bid1.price">
+        <span *ngIf="new_bid1.price > all_basketball[0].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit1(); new_bid1.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit1(); new_bid1.price=''"></ng-template>
+      </span>
+
+      <span *ngIf="all_basketball[1] && !all_basketball[2]">
+        <input type="number" name="price" min={{all_basketball[1].price}} [(ngModel)]="new_bid1.price">
+        <span *ngIf="new_bid1.price > all_basketball[1].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit1(); new_bid1.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit1(); new_bid1.price=''"></ng-template>
+      </span>
+
+      <span *ngIf="all_basketball[2] && !all_basketball[3]">
+        <input type="number" name="price" min={{all_basketball[2].price}} [(ngModel)]="new_bid1.price">
+        <span *ngIf="new_bid1.price > all_basketball[2].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit1(); new_bid1.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit1(); new_bid1.price=''"></ng-template>
+      </span>
+    </form>
+
+    <div class="error">
+      <span *ngIf="all_basketball[0] && new_bid1.price && !all_basketball[1]">
+        <p *ngIf="new_bid1.price <= all_basketball[0].price">Bid amount should be higher than the previous bid of ${{all_basketball[0].price}}</p>
+      </span>
+      <span *ngIf="all_basketball[1] && new_bid1.price && !all_basketball[2]">
+        <p *ngIf="new_bid1.price <= all_basketball[1].price">Bid amount should be higher than the previous bid of ${{all_basketball[1].price}}</p>
+      </span>
+      <span *ngIf="all_basketball[2] && new_bid1.price">
+        <p *ngIf="new_bid1.price <= all_basketball[2].price">Bid amount should be higher than the previous bid of ${{all_basketball[2].price}}</p>
+      </span>
+    </div>
+
+    <h4> Current Bids:</h4>
+    <div class="biddings">
+      <div *ngFor="let ball of all_basketball">
+        <p>{{ball.name}}: ${{ball.price}}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="product2">
+    <img src="../assets/images/car.jpg" alt="product 2">
+
+    <form>
+      <span *ngIf="(!all_car[0])">
+        <input type="number" name="price" min="1" [(ngModel)]="new_bid2.price">
+        <span *ngIf="new_bid2.price > 0; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit2(); new_bid2.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit2(); new_bid2.price=''"></ng-template>
+      </span>
+  
+      <span *ngIf="all_car[0] && !all_car[1]">
+        <input type="number" name="price" min={{all_car[0].price}} [(ngModel)]="new_bid2.price">
+        <span *ngIf="new_bid2.price > all_car[0].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit2(); new_bid2.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit2(); new_bid2.price=''"></ng-template>
+      </span>
+  
+      <span *ngIf="all_car[1] && !all_car[2]">
+        <input type="number" name="price" min={{all_car[1].price}} [(ngModel)]="new_bid2.price">
+        <span *ngIf="new_bid2.price > all_car[1].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit2(); new_bid2.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit2(); new_bid2.price=''"></ng-template>
+      </span>
+  
+      <span *ngIf="all_car[2] && !all_car[3]">
+        <input type="number" name="price" min={{all_car[2].price}} [(ngModel)]="new_bid2.price">
+        <span *ngIf="new_bid2.price > all_car[2].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit2(); new_bid2.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit2(); new_bid2.price=''"></ng-template>
+      </span>
+    </form>
+
+    <div class="error">
+      <span *ngIf="all_car[0] && new_bid2.price && !all_car[1]">
+        <p *ngIf="new_bid2.price <= all_car[0].price">Bid amount should be higher than the previous bid of ${{all_car[0].price}}</p>
+      </span>
+      <span *ngIf="all_car[1] && new_bid2.price && !all_car[2]">
+        <p *ngIf="new_bid2.price <= all_car[1].price">Bid amount should be higher than the previous bid of ${{all_car[1].price}}</p>
+      </span>
+      <span *ngIf="all_car[2] && new_bid2.price">
+        <p *ngIf="new_bid2.price <= all_car[2].price">Bid amount should be higher than the previous bid of ${{all_car[2].price}}</p>
+      </span>
+    </div>
+
+    <h4> Current Bids:</h4>
+    <div class="biddings">
+      <div *ngFor="let car of all_car">
+        <p>{{car.name}}: ${{car.price}}</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="product3">
+    <img src="../assets/images/spinner.jpg" alt="product 3">
+
+    <form>
+      <span *ngIf="(!all_spinner[0])">
+        <input type="number" name="price" min="1" [(ngModel)]="new_bid3.price">
+        <span *ngIf="new_bid3.price > 0; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit3(); new_bid3.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit3(); new_bid3.price=''"></ng-template>
+      </span>
+  
+      <span *ngIf="all_spinner[0] && !all_spinner[1]">
+        <input type="number" name="price" min={{all_spinner[0].price}} [(ngModel)]="new_bid3.price">
+        <span *ngIf="new_bid3.price > all_spinner[0].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit3(); new_bid3.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit3(); new_bid3.price=''"></ng-template>
+      </span>
+  
+      <span *ngIf="all_spinner[1] && !all_spinner[2]">
+        <input type="number" name="price" min={{all_spinner[1].price}} [(ngModel)]="new_bid3.price">
+        <span *ngIf="new_bid3.price > all_spinner[1].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit3(); new_bid3.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit3(); new_bid3.price=''"></ng-template>
+      </span>
+  
+      <span *ngIf="all_spinner[2] && !all_spinner[3]">
+        <input type="number" name="price" min={{all_spinner[2].price}} [(ngModel)]="new_bid3.price">
+        <span *ngIf="new_bid3.price > all_spinner[2].price; else disable_button">
+          <input type="submit" value="Bid" [disabled]="True" (click)="onSubmit3(); new_bid3.price=''">
+        </span>
+        <ng-template #disable_button><input type="submit" value="Bid" [disabled]="!True" (click)="onSubmit3(); new_bid3.price=''"></ng-template>
+      </span>
+    </form>
+    <div class="error">
+      <span *ngIf="all_spinner[0] && new_bid3.price && !all_spinner[1]">
+        <p *ngIf="new_bid3.price <= all_spinner[0].price">Bid amount should be higher than the previous bid of ${{all_spinner[0].price}}</p>
+      </span>
+      <span *ngIf="all_spinner[1] && new_bid3.price && !all_spinner[2]">
+        <p *ngIf="new_bid3.price <= all_spinner[1].price">Bid amount should be higher than the previous bid of ${{all_spinner[1].price}}</p>
+      </span>
+      <span *ngIf="all_spinner[2] && new_bid3.price">
+        <p *ngIf="new_bid3.price <= all_spinner[2].price">Bid amount should be higher than the previous bid of ${{all_spinner[2].price}}</p>
+      </span>
+    </div>
+
+    <h4> Current Bids:</h4>
+    <div class="biddings">
+      <div *ngFor="let spinner of all_spinner">
+        <p>{{spinner.name}}: ${{spinner.price}}</p>
+      </div>
+    </div>
+  </div>
+
+  <span *ngIf="all_basketball[0] && all_car[0] && all_spinner[0]; else missing_bid">
+    <!-- <p>Each item has at least one bid</p> -->
+    <button class="go" (click)="endBid()" role="alert">End Bid</button>
+  </span>
+  <ng-template #missing_bid>
+    <button class="noGo" (click)="cannotEndBid()" role="alert">End Bid</button>
+  </ng-template>
+
+</div>
+
+
+
+<!-- <br>
+  <p>======== For Testing ========</p>
+<hr>
+  <p>Basketball data:</p>
+  {{ all_basketball | json }}
+<hr>
+<p>Car data:</p>
+  {{ all_car| json }}
+<hr>
+<p>Spinner data:</p>
+  {{ all_spinner | json }}
+<hr> -->
+  
